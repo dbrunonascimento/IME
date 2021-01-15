@@ -20,3 +20,5 @@ Leitura:
 http://www.cse.chalmers.se/~abela/lehre/SS07/Typen/wadler89theorems.pdf
 https://leanpub.com/algebra-driven-design
 https://leanpub.com/thinking-with-types
+
+https://leanpub.com/thinking-with-types agda
