@@ -1,0 +1,25 @@
+------------------ EXERCICIO PARA NOTA 1 -----------
+
+------------------------- Duplas -------------------
+
+-- Segunda 18/1: 13:59
+-- Link do repositorio no moodle.
+
+Fonte em todos.
+
+(2.5) Parte a) Escolher 2 exercicios do capítulo 2 usando
+map, filter, foldl (opcional) e unfold. 2 exercícios
+do capítulo 3 (que envolvam criaçao de tipos).
+
+(2.5) (1.5 para quem fizer o 1) 
+Parte b) Fazer 3 estrelas do https://adventofcode.com/ (em Haskell)
+Foto da estrela.
+
+(2.5) 
+Parte c) 2 exercícios da trilha funcional do HackerRank.
+Nível médio.
+Print de 100% dos casos de teste casos.
+
+(2.5)
+Parte d)
+Mostre, em Haskell, que 3*a = a + a + a.
