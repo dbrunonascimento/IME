@@ -15,8 +15,8 @@ stack install unordered-containers
 https://hackage.haskell.org/package/unordered-containers-0.2.13.0/docs/Data-HashMap-Internal.html#t:HashMap
 
 
+
 Leitura: 
-
 http://www.cse.chalmers.se/~abela/lehre/SS07/Typen/wadler89theorems.pdf
-
 https://leanpub.com/algebra-driven-design
+https://leanpub.com/thinking-with-types
