@@ -1,0 +1,80 @@
+{-# LANGUAGE EmptyDataDeriving #-}
+module Aula3 where
+
+-- ALGEBRAIC DATA TYPES
+-- Either Int Zero \equiv Int
+-- Either Zero Int \equiv Int
+data Zero deriving Show
+
+-- (Int,Sozinho) \equiv Int
+-- (Int,()) \equiv Int
+-- ((),Int) \equiv Int
+-- Maybe Int \equiv Int + 1
+data Sozinho = Sozinho deriving Show
+
+-- (Dia * Int * Mes * Int) + (Dia * Int)
+-- (Dia * Int) (Mes * Int + 1)
+-- (Dia * Int) (Maybe (Mes * Int))
+
+data Calen = Calen Dia Int (Maybe (Mes, Int))
+    deriving Show
+
+data Calendario =
+    Calendario Dia Int Mes Int
+  | Lunar Dia Int deriving Show
+
+-- Mes eh um tipo de enumeracao
+-- Mes = 12
+data Mes = Jan | Fev | Mar | Abr | Mai
+         | Jun | Jul | Ago | Set | Out
+         | Nov | Dez deriving (Eq, Show)
+
+-- Dia eh um tipo de enumeracao
+-- 1 + 1 + 1 + 1 + 1 + 1 + 1
+-- Dia = 7
+data Dia = Domingo | Segunda | Terca
+         | Quarta  | Quinta  | Sexta
+         | Sabado deriving (Read, Enum, Ord, Eq, Show)
+
+-- Pattern Matching (entrada da funcao ou case): Descontroi o tipo de
+-- entrada liberando o acesso aos valores
+-- internos.
+
+-- Funcao total: A funcao retorna em TODOS
+-- os casos do pattern matching.
+
+-- Funcao parcial: A funcao nao está definida em algum caso (pattern matching).
+
+-- readDia eh total
+readDia :: String -> Maybe Dia
+readDia "Segunda" = Just Segunda
+readDia "Terca" = Just Terca
+readDia "Quarta" = Just Quarta
+readDia "Quinta" = Just Quinta
+readDia "Sexta"  = Just Sexta
+readDia "Sabado" = Just Sabado
+readDia "Domingo" = Just Domingo
+readDia _         = Nothing
+
+toNumero :: Dia -> Int
+toNumero Segunda = 100
+toNumero Terca = 101
+toNumero Quarta = 103
+toNumero Quinta = 102
+toNumero Sexta = 106
+toNumero Sabado = 105
+toNumero Domingo = 107
+
+-- toDia :: Int -> String + Dia
+toDia :: Int -> Either String Dia
+toDia 1 = Right Segunda
+toDia 2 = Right Terca
+toDia 3 = Right Quarta
+toDia 4 = Right Quinta
+toDia 5 = Right Sexta
+toDia 6 = Right Sabado
+toDia 7 = Right Domingo
+toDia _ = Left "Dia invalido"
+
+
+

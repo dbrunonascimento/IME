@@ -1,0 +1,72 @@
+module Aula32 where
+
+data Medida = Copo | Ml | Oz deriving (Eq, Show)
+
+-- Record Syntax: Possibilidade de nomear campos de
+-- um tipo. Esses nomes sao funçoes de projecao e possuem
+-- caracteristicas similares a um get (OOP).
+data Receita = Receita {
+    quantidade :: Double,
+    medida :: Medida
+} deriving Show
+
+
+conversaoMl :: Receita -> Receita
+conversaoMl (Receita qt Copo) = Receita (236.588*qt) Ml
+conversaoMl (Receita qt Oz) = Receita (29.57*qt) Ml
+conversaoMl x = x
+
+convMl :: Receita -> Receita
+convMl r
+    | medida r == Copo = Receita (236.588*quantidade r) Ml
+    | medida r == Oz   = Receita (29.57*quantidade r) Ml
+    | otherwise = r
+
+data Cliente = Cliente {
+    nome :: String,
+    dtNasc :: Calendario,
+    cpf :: String
+} deriving Show
+
+data Calendario =
+    Calendario Dia Int Mes Int deriving Show
+
+data Mes = Jan | Fev | Mar | Abr | Mai
+         | Jun | Jul | Ago | Set | Out
+         | Nov | Dez deriving (Enum, Eq, Show)
+
+data Dia = Domingo | Segunda | Terca
+         | Quarta  | Quinta  | Sexta
+         | Sabado deriving (Read, Enum, Ord, Eq, Show)
+
+proxMes :: Mes -> Mes
+proxMes Dez = Jan
+proxMes x = succ x
+
+proxDia :: Dia -> Dia
+proxDia Sabado = Domingo
+proxDia x = succ x
+
+-- Ex: Ajustar para Maybe ou Either
+proxCalen :: Calendario -> Calendario
+proxCalen (Calendario dia 28 Fev ano)
+    | mod ano 4 == 0 = Calendario (proxDia dia) 29 Fev ano
+    | mod ano 4 /= 0 = Calendario (proxDia dia) 1  Mar ano
+proxCalen (Calendario dia 29 Fev ano) =
+    Calendario (proxDia dia) 1 Mar ano
+proxCalen (Calendario dia 31 Dez ano) =
+    Calendario (proxDia dia) 1 Jan (ano+1)
+proxCalen (Calendario dia num mes ano)
+    | num == 30 && (elem mes [Abr,Jun,Set,Nov]) =
+        Calendario (proxDia dia) 1 (proxMes mes) ano
+    | num == 31 && (elem mes [Jan,Mar,Mai,Jul,Ago,Out]) =
+        Calendario (proxDia dia) 1 (proxMes mes) ano
+    | num >= 1 && num <= 29 =
+        Calendario (proxDia dia) (num+1) mes ano
+    | otherwise = Calendario dia num mes ano
+
+
+
+
+
+

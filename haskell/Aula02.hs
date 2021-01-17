@@ -1,45 +1,45 @@
+module Aula2 where
 
+-- Lista (cap 2): Eh uma estrtura de dados que permite
+-- uma quantidade variavel (vazia ou até mesmo infinita) de elementos de mesmo tipo.
 
+-- Tuplas (cap 2): Eh uma estrtura de dados que
+-- permite uma quantidade fixa de elementos de
+-- tipos diferentes (até 64).
 
-fib' :: Integer -> Integer 
-fib' valor 
-    | valor <= 1 = valor 
-    | otherwise = fib'(valor -1) + fib'(valor - 2) 
-    
+-- Guards (cap 4): Aceitam condicoes booleanas
+-- no corpo da funcao. Sao checadas
+-- ordenamente.
 
-fat' :: Integer -> Integer
-   | valor <= 0 = 1 
-   | otherwise = valor * fat' (valor - 1) 
+soma :: Int -> Int -> Int
+soma x y = x+y
 
+somat :: (Int, Int) -> Int
+somat z = fst z + snd z
 
-fat' 5 = fat
+somartt :: (Int, Int) -> Int
+somartt (x,y) = x+y
 
+se :: Bool -> Int -> Int -> Int
+se b v f
+    | b == True = v
+    | b == False = f
 
--- Estamos discutindo a funcao reverse 
-reverse :: [a] -> [a]
-let x = [1..10]
-reverse x 
+modulo :: Int -> Int
+modulo x
+    | x >= 0 = x
+    | otherwise = -x
 
-let letras = [A..Z]
-reverse letras 
--- ACDEF...XYZ
--- RESULTADO: ZYXWVU...CBA 
+triplo :: Int -> Int
+triplo x
+    | odd x = 3*x
+    | otherwise = x
 
--------------------------------------------------
--- Operador const é ":" o dois ponto.  
-:t (:)
--- Basicamente ele faz a concatenacao dos valores em uma lista... ele começa da direita pra esquerda. 
--- fazendo a inferencia do elemento mais a direita. 
+divisores :: Int -> [Int]
+divisores k = [n | n <- [1..k], mod k n == 0]
 
-2 : 3 : 4 : 1 : [] 
-
-
--- Pattern Matching List 
-lista :: [Int] -> [Int]
-lista [x] = [x]
-lista (x2:x1:[]) = x2: x1 : []
-
-
+ehPrimo :: Int -> Bool
+ehPrimo n = length (divisores n) == 2
 
 
 
