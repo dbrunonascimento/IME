@@ -22,3 +22,5 @@ https://leanpub.com/algebra-driven-design
 https://leanpub.com/thinking-with-types
 
 https://leanpub.com/thinking-with-types agda
+
+https://codewords.recurse.com/issues/three/algebra-and-calculus-of-algebraic-data-types
