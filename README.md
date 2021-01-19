@@ -24,3 +24,14 @@ https://leanpub.com/thinking-with-types
 https://leanpub.com/thinking-with-types agda
 
 https://codewords.recurse.com/issues/three/algebra-and-calculus-of-algebraic-data-types
+
+
+
+Parte Prática 
+
+stack nomeProjeto yesodweb/minimal
+stack new nomeProjeto yesodweb/minimal
+stack new nomeProjeto yesodweb/postgres
+stack build
+
+stack exec nomeProjeto
